@@ -1,6 +1,9 @@
 package com.example.a2_cards_deck;
 
 abstract public class AbstractFileSystemNode implements FileSystemNode{
+    public FileSystemNode parent;
+    public String name;
+
     @Override
     public final FileSystemNode getParent() {
         return parent;
