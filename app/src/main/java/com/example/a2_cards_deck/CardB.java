@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
 
-public class CardB {
+public class CardB implements Comparable<CardB> {
     public static Map<Integer, String> rankParser;
     public static HashSet<String> legitSuits;
     public static Map<String, Integer> suitsStrength;
@@ -84,16 +84,16 @@ public class CardB {
         return rank > card.getRank();
     }
 
-    public int isStronger(CardB card) {
-        //Так как создать карту с несуществующей мастью невозможно, исключение вызвано не будет
-        int suitDiff = suitsStrength.get(suit) - suitsStrength.get(card.getSuit());
+    static public int isStronger(CardB firstCard, CardB secondCard) {
+        return firstCard.compareTo(secondCard);
+    }
+
+    @Override
+    public int compareTo(CardB cardB) {
+        int suitDiff = suitsStrength.get(suit) - suitsStrength.get(cardB.getSuit());
         if (suitDiff != 0) {
             return suitDiff;
         }
-        return rank - card.getRank();
-    }
-
-    static public int isStronger(CardB firstCard, CardB secondCard) {
-        return firstCard.isStronger(secondCard);
+        return rank - cardB.getRank();
     }
 }
