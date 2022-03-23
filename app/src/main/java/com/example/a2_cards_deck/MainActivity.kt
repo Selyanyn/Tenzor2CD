@@ -45,6 +45,17 @@ class MainActivity : AppCompatActivity() {
         }
         println(deck)
 
+        val games = Folder()
+        games.name = "games"
+        val photos = Folder()
+        photos.name = "photos"
+        val rootDir = Folder(games, photos)
+        rootDir.name = "root"
+        val doca2 = File("exe")
+        doca2.name = "doca2"
+        doca2.parent = games
+        println(doca2.fullPath)
+
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)

@@ -10,4 +10,9 @@ public class File extends AbstractFileSystemNode {
     public String getExtension() {
         return extension;
     }
+
+    @Override
+    public String getName() {
+        return super.getName() + '.' + extension;
+    }
 }

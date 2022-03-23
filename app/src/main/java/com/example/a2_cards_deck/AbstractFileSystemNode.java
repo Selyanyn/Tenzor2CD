@@ -22,7 +22,6 @@ abstract public class AbstractFileSystemNode implements FileSystemNode{
             node = node.getParent();
             path.insert(0, node.getName() + '/');
         }
-        path.insert(0, node.getName() + '/');
         return path.toString();
     }
 }
