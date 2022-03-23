@@ -8,6 +8,7 @@ import java.util.Collections;
 public class Deck {
     private ArrayList<CardB> deck;
     private Deck(boolean withJokers) throws Exception {
+        deck = new ArrayList<CardB>();
         for (String suit: CardB.legitSuits) {
             for (int rank = 2; rank <= 14; rank++) {
                 deck.add(new CardB(suit, rank));

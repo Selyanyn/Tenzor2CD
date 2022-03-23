@@ -26,6 +26,9 @@ public class CardC {
         }
         this.rank = rank;
         this.suit = suit;
+        if (rank > maxRank.get(suit)) {
+            maxRank.put(suit, rank);
+        }
     }
 
     public CardC(String suit) throws Exception {
@@ -46,5 +49,13 @@ public class CardC {
     }
     public int getRank() {
         return this.rank;
+    }
+
+    public String toString() {
+        String stringRank = (rank >= 11 && rank <= 14) ? CardB.rankParser.get(rank) : String.valueOf(rank);
+        return "CardC{" +
+                "suit='" + suit + '\'' +
+                ", rank=" + stringRank +
+                '}';
     }
 }

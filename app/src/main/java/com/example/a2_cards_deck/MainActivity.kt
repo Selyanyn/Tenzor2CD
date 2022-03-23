@@ -17,6 +17,34 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val card = CardB("hearts", 4)
+        println(card.toString())
+        val cardC = CardC("clubs", 10)
+        println(cardC.toString())
+        val cardC2 = CardC("clubs")
+        println(cardC2.toString())
+        val cardB2 = CardB("diamonds", 12)
+        println(card.compareTo(cardB2))
+        val deck = Deck.createDeckWithJokers()
+        println(deck.toString())
+        deck.shuffleDeck()
+        println(deck.toString())
+        val dealtCards = ArrayList<CardB>()
+        for (i in 0..4) {
+            dealtCards.add(deck.dealCard())
+        }
+        println(dealtCards)
+        deck.addCard(dealtCards[0])
+        deck.addCard(dealtCards[1])
+        deck.addCard(dealtCards[1])
+        println(deck)
+        deck.sortDeck()
+        println(deck)
+        while (!deck.isEmpty) {
+            deck.dealCard()
+        }
+        println(deck)
+
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
