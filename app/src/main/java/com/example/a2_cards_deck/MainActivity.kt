@@ -17,13 +17,13 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        val card = CardB("hearts", 4)
+        val card = CardBKT("hearts", 4)
         println(card.toString())
         val cardC = CardC("clubs", 10)
         println(cardC.toString())
         val cardC2 = CardC("clubs")
         println(cardC2.toString())
-        val cardB2 = CardB("diamonds", 12)
+        val cardB2 = CardBKT("diamonds", 12)
         println(card.compareTo(cardB2))
         val deck = Deck.createDeckWithJokers()
         println(deck.toString())
@@ -45,16 +45,16 @@ class MainActivity : AppCompatActivity() {
         }
         println(deck)
 
-        val games = Folder()
-        games.name = "games"
-        val photos = Folder()
-        photos.name = "photos"
-        val rootDir = Folder(games, photos)
-        rootDir.name = "root"
-        val doca2 = File("exe")
-        doca2.name = "doca2"
-        doca2.parent = games
-        println(doca2.fullPath)
+        val games = FolderKT()
+        games.setName("games")
+        val photos = FolderKT()
+        photos.setName("photos")
+        val rootDir = FolderKT(games, photos)
+        rootDir.setName("root")
+        val doca2 = FileKT("exe")
+        doca2.setName("doca2")
+        doca2.setParent(games)
+        println(doca2.getFullPath())
 
         super.onCreate(savedInstanceState)
 
